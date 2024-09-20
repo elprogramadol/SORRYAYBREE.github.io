@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje para Sophia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .message, #myButton {
+            color: black; /* Texto negro */
+            font-size: 20px;
+            margin-top: 10px;
+            transition: opacity 1s ease-out;
+            opacity: 1;
+        }
+
+        .hidden {
+            opacity: 0;
+        }
+
+        #displayMessage {
+            font-size: 30px;
+            font-family: "Georgia", serif;
+            color: #000;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        }
+
+        #imageContainer {
+            display: none;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        }
+
+        #imageContainer img {
+            width: 200px; /* Ajusta el tamaño de la imagen aquí */
+            height: auto;
+        }
+
+        button {
+            background-color: #008000; /* Color verde de fondo */
+            color: black; /* Texto negro */
+            padding: 15px 32px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #006400; /* Verde oscuro cuando el botón es presionado */
+        }
+    </style>
+</head>
+<body>
+
+    <button id="myButton">MENSAJE PARA SOphIA!!11!</button>
+    <p class="message">amor tienes quetocar el boton para ver el mensaje jeje</p>
+
+    <p id="displayMessage">hola miamorsito sabias que yo te amo con to mi weputa corazon, gracias por aguantar mis estupidece, de verdad coño haces mi vida mas bonita, te amuuuuuuuuuuuuuuuuuuuu <3</p>
+
+    <!-- Contenedor de la imagen que aparecerá -->
+    <div id="imageContainer">
+        <img src="image.png" alt="Imagen después del clic">
+    </div>
+
+    <script>
+        const button = document.getElementById('myButton');
+        const message = document.querySelector('.message');
+        const displayMessage = document.getElementById('displayMessage');
+        const imageContainer = document.getElementById('imageContainer');
+
+        button.addEventListener('click', () => {
+            // Desvanecer el botón y el mensaje previo
+            button.classList.add('hidden');
+            message.classList.add('hidden');
+
+            // Después de 1 segundo, mostrar "hola" con fundido
+            setTimeout(() => {
+                displayMessage.style.opacity = '1';
+            }, 1000);
+
+            // Después de 2 segundos, mostrar la imagen
+            setTimeout(() => {
+                imageContainer.style.display = 'block';
+                setTimeout(() => {
+                    imageContainer.style.opacity = '1';
+                }, 10); // Pequeño retraso para aplicar el fade-in de la imagen
+            }, 2000); // Retraso para mostrar la imagen después del desvanecimiento
+        });
+    </script>
+
+</body>
+</html>
