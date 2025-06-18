@@ -1,105 +1,98 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mensaje para Sophia</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
+  <meta charset="UTF-8">
+  <title>Sorry Aybree 💔</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fff3e0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
 
-        .message, #myButton {
-            color: black; /* Texto negro */
-            font-size: 20px;
-            margin-top: 10px;
-            transition: opacity 1s ease-out;
-            opacity: 1;
-        }
+    h1 {
+      font-size: 3rem;
+      color: #ff6f00;
+    }
 
-        .hidden {
-            opacity: 0;
-        }
+    .buttons {
+      margin-top: 20px;
+    }
 
-        #displayMessage {
-            font-size: 30px;
-            font-family: "Georgia", serif;
-            color: #000;
-            margin-top: 20px;
-            opacity: 0;
-            transition: opacity 2s ease-in;
-        }
+    button {
+      padding: 15px 25px;
+      margin: 10px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        #imageContainer {
-            display: none;
-            margin-top: 20px;
-            opacity: 0;
-            transition: opacity 2s ease-in;
-        }
+    #yesBtn {
+      background-color: #43a047;
+      color: white;
+    }
 
-        #imageContainer img {
-            width: 200px; /* Ajusta el tamaño de la imagen aquí */
-            height: auto;
-        }
-
-        button {
-            background-color: #008000; /* Color verde de fondo */
-            color: black; /* Texto negro */
-            padding: 15px 32px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #006400; /* Verde oscuro cuando el botón es presionado */
-        }
-    </style>
+    #noBtn {
+      background-color: #e53935;
+      color: white;
+    }
+  </style>
 </head>
 <body>
+  <h1 id="question">Will you forgive me, Aybree?</h1>
+  <div class="buttons">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
 
-    <button id="myButton">MENSAJE PARA SOphIA!!11!</button>
-    <p class="message">amor tienes quetocar el boton para ver el mensaje jeje</p>
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const question = document.getElementById('question');
 
-    <p id="displayMessage">hola miamorsito sabias que yo te amo con to mi weputa corazon, gracias por aguantar mis estupidece, de verdad coño haces mi vida mas bonita, te amuuuuuuuuuuuuuuuuuuuu <3</p>
+    const messages = [
+      "Yes",
+      "Please Aybree 🥺",
+      "Me and Alfonso are crying rn 😢",
+      "We can't even play Roblox anymore...",
+      "Every time I open Roblox, I cry 😭",
+      "Alfonso said: 'bro she was the one' 💔",
+      "Even my Puffle left me 🧸",
+      "I deleted my Club Penguin game for you...",
+      "Please Aybree, I'll give you my limiteds 🙏",
+      "You're the only one who liked Ken Carson like me 😭",
+      "AYBREE PLEASE I’M ON MY KNEES 😩🙏",
+      "MY ROBLOX AVATAR IS DEPRESSED NOW 😞"
+    ];
 
-    <!-- Contenedor de la imagen que aparecerá -->
-    <div id="imageContainer">
-        <img src="image.png" alt="Imagen después del clic">
-    </div>
+    let clickCount = 0;
 
-    <script>
-        const button = document.getElementById('myButton');
-        const message = document.querySelector('.message');
-        const displayMessage = document.getElementById('displayMessage');
-        const imageContainer = document.getElementById('imageContainer');
+    noBtn.addEventListener('click', () => {
+      if (clickCount < messages.length - 1) {
+        clickCount++;
+        yesBtn.textContent = messages[clickCount];
+        yesBtn.style.fontSize = `${1.2 + clickCount * 0.5}rem`;
+      } else {
+        // Max drama
+        yesBtn.style.fontSize = '6rem';
+        yesBtn.style.padding = '40px 70px';
+        noBtn.style.display = 'none';
+        question.textContent = "Aybree... even Roblox can't fix this pain 😭";
+      }
+    });
 
-        button.addEventListener('click', () => {
-            // Desvanecer el botón y el mensaje previo
-            button.classList.add('hidden');
-            message.classList.add('hidden');
-
-            // Después de 1 segundo, mostrar "hola" con fundido
-            setTimeout(() => {
-                displayMessage.style.opacity = '1';
-            }, 1000);
-
-            // Después de 2 segundos, mostrar la imagen
-            setTimeout(() => {
-                imageContainer.style.display = 'block';
-                setTimeout(() => {
-                    imageContainer.style.opacity = '1';
-                }, 10); // Pequeño retraso para aplicar el fade-in de la imagen
-            }, 2000); // Retraso para mostrar la imagen después del desvanecimiento
-        });
-    </script>
-
+    yesBtn.addEventListener('click', () => {
+      question.textContent = "THANK YOU AYBREE 💕💖 Alfonso and I can smile again 🥹";
+      yesBtn.style.display = 'none';
+      noBtn.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
